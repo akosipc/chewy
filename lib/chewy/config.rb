@@ -3,7 +3,7 @@ module Chewy
     include Singleton
 
     attr_accessor :settings, :logger,
-      # Default query compilation mode. `:must` by default.
+      # Default query compilation mode. `:must` by defaultl.
       # See Chewy::Query#query_mode for details
       #
       :query_mode,
@@ -158,8 +158,6 @@ module Chewy
       Class.new(base).tap do |search_class|
         if defined?(::Kaminari)
           search_class.send :include, Chewy::Search::Pagination::Kaminari
-        elsif defined?(::WillPaginate)
-          search_class.send :include, Chewy::Search::Pagination::WillPaginate
         end
       end
     end
